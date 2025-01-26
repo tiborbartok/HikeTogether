@@ -1,0 +1,23 @@
+<div class="profile-container">
+    <div class="profile-header">
+      <img [src]="user.profilePicture" alt="Profile Picture" class="profile-picture" />
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+  
+    <button *ngIf="!isEditing" class="edit-button" (click)="toggleEdit()">Edit Profile</button>
+  
+    <div *ngIf="isEditing" class="edit-form">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="updatedName" />
+  
+      <label for="email">Email:</label>
+      <input id="email" [(ngModel)]="updatedEmail" />
+  
+      <button (click)="saveProfile()">Save</button>
+      <button (click)="toggleEdit()">Cancel</button>
+    </div>
+  
+    <!-- Change Password Button -->
+    <button class="change-password-button" (click)="changePassword()">Change Password</button>
+  </div>

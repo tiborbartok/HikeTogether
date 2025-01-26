@@ -1,0 +1,39 @@
+.index-page {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 800px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #34495e;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Ensure the button is clickable */
+    z-index: 1; /* Prevent overlapping elements */
+  }
+  
+  .btn:hover {
+    background-color: #2980b9;
+  }

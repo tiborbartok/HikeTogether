@@ -1,0 +1,103 @@
+.profile-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #ecf0f1;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-header h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+  }
+  
+  .profile-header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+  
+  .edit-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .edit-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .edit-form input {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .edit-form button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .edit-form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .edit-form button:last-child {
+    background-color: #e74c3c;
+  }
+  
+  .edit-form button:last-child:hover {
+    background-color: #c0392b;
+  }
+  
+  .change-password-button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .change-password-button:hover {
+    background-color: #d35400;
+  }

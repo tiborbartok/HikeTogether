@@ -1,0 +1,23 @@
+<div class="home-container">
+    <div class="welcome-section">
+      <h1>Welcome back, {{ userEmail }}!</h1>
+      <p>Let's explore some new hiking adventures!</p>
+    </div>
+  
+    <div class="quick-access">
+      <div class="card">
+        <h3>Explore Hikes</h3>
+        <p>Discover new hiking trails, view details, and sign up.</p>
+        <button [routerLink]="['/hikes']">Go to Hikes</button>
+      </div>
+      <div class="card">
+        <h3>Your Profile</h3>
+        <p>Manage your personal information and preferences.</p>
+        <button [routerLink]="['/profile']">Go to Profile</button>
+      </div>
+    </div>
+  
+    <div class="logout-button">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>

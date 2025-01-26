@@ -1,0 +1,89 @@
+nav {
+  background-color: #2c3e50;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add relative positioning for the burger icon */
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  text-transform: capitalize;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+a.active-link {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.burger-menu {
+  display: block;
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute; /* Position the burger menu at the right side */
+  right: 2rem; /* Align it with the right edge */
+  width: 20px;  /* Make the clickable area larger */
+  height: 20px; /* Make the clickable area larger */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  ul {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  ul.active {
+    display: flex;
+  }
+
+  li {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none;
+  }
+}

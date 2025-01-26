@@ -1,0 +1,17 @@
+<div class="hikes-container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchQuery" (input)="filterHikes()" placeholder="Search for a hike..." />
+    </div>
+  
+    <!-- Hikes List -->
+    <div class="hikes-list">
+      <div *ngFor="let hike of filteredHikes" class="hike-card">
+        <h3>{{ hike.name }}</h3>
+        <p><strong>Location:</strong> {{ hike.location }}</p>
+        <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+        <p>{{ hike.description }}</p>
+        <button (click)="joinHike(hike)">Join This Hike</button>
+      </div>
+    </div>
+  </div>
