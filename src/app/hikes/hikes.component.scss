@@ -1,0 +1,80 @@
+.hikes-container {
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.search-bar input:focus {
+  border-color: darkgreen;
+  outline: none;
+}
+
+.hikes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.hike-card {
+  background-color: #ecf0f1;
+  padding: 2rem;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.hike-card:hover {
+  transform: scale(1.05);
+}
+
+.hike-card h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+}
+
+.hike-card p {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-top: 0.5rem;
+}
+
+.hike-card button {
+  background-color: rgb(7, 91, 7);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hike-card button:hover {
+  background-color: rgb(5, 62, 5);
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+}

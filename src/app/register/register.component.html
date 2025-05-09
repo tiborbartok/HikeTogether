@@ -1,0 +1,14 @@
+<div class="register-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <label>Username:</label>
+    <input type="text" placeholder="Username"  formControlName="username" /> <br>
+    <label>Email:</label>
+    <input type="email" placeholder="E-mail" formControlName="email" /> <br>
+    <label>Password (at least 8 characters):</label>
+    <input type="password" placeholder="Password" formControlName="password" /> <br>
+    <label>Password again:</label>
+    <input type="password" placeholder="Password again" formControlName="passwordConfirm" /> <br>
+    <button type="submit" [disabled]="form.invalid">Register</button>
+  </form>
+</div>

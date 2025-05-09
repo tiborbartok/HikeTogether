@@ -1,0 +1,29 @@
+<div class="home-container">
+  <div class="welcome-section">
+    <h1>Welcome back, {{authService.currentUserSignal()?.username}}!</h1>
+    <p>Let's explore some new hiking adventures!</p>
+  </div>
+
+  <div class="quick-access">
+    <div class="card">
+      <h3>Explore Hikes</h3>
+      <p>Discover new hiking events, view details, and sign up.</p>
+      <button routerLink="/hikes">Go To Browse Hikes</button>
+    </div>
+    <div class="card">
+      <h3>Share A Hike</h3>
+      <p>Planning to go on a hike? Share it with the community!</p>
+      <button routerLink="/sharehike">Go to Share A Hike</button>
+    </div>
+    <div class="card">
+      <h3>Your Hikes</h3>
+      <p>Check your upcoming, shared and completed hikes.</p>
+      <button routerLink="/myhikes">Go To My Hikes</button>
+    </div>
+    <div class="card">
+      <h3>Your Profile</h3>
+      <p>Manage your personal information and check your path.</p>
+      <button routerLink="/profile">Go to Profile</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<nav>
+  <div class="logo">
+    @if (authService.currentUserSignal() == null) {
+      <a routerLink="/index" routerLinkActive="active">HikeTogether</a>
+    }
+
+    @if (authService.currentUserSignal()) {
+      <a routerLink="/home" routerLinkActive="active">HikeTogether</a>
+    }
+  </div>
+
+  <button class="burger-menu" (click)="toggleMenu()">
+    <span class="burger-icon"></span>
+  </button>
+
+  <ul [class.active]="menuVisible">
+    @if (authService.currentUserSignal() == null) {
+      <li><a routerLink="/login" (click)="toggleMenu()" routerLinkActive="active">Login</a></li>
+      <li><a routerLink="/register" (click)="toggleMenu()" routerLinkActive="active">Register</a></li> 
+    }
+
+    @if (authService.currentUserSignal()) {
+      <li><a routerLink="/home" (click)="toggleMenu()" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/hikes" (click)="toggleMenu()" routerLinkActive="active">Browse Hikes</a></li>
+      <li><a routerLink="/sharehike" (click)="toggleMenu()" routerLinkActive="active">Share A Hike</a></li>
+      <li><a routerLink="/myhikes" (click)="toggleMenu()" routerLinkActive="active">My Hikes</a></li>
+      <li><a routerLink="/profile" (click)="toggleMenu()" routerLinkActive="active">Profile</a></li>
+      <li><a href="#" class="logout" (click)="toggleMenu()" (click)="logout()">Logout</a></li>
+    }
+  </ul>
+</nav>

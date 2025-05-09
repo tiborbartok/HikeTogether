@@ -1,0 +1,67 @@
+.share-hike-container {
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+label{
+  text-align: center;
+}
+
+button {
+  background-color: rgb(7, 91, 7);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(5, 62, 5);
+}
+
+button[disabled] {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
+textarea {
+  max-width: 200px;
+  max-height: 400px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, select {
+  width: 50%;
+  padding: 8px 12px;
+}
+
+input:focus {
+  border-color: darkgreen;
+  outline: none;
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}

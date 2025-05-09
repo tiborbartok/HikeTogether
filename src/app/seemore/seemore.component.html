@@ -1,0 +1,78 @@
+<div class="hike-container">
+  <div class="hike-details-card" *ngIf="hikeSignal()">
+    <h1>{{hikeSignal()?.name}}</h1>
+    <p><strong>Shared by: </strong>{{hikeSignal()?.userEmail}}</p>
+    <p><strong>Date and Time:</strong> {{hikeSignal()?.dateAndTime?.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+    <p><strong>Location:</strong> {{hikeSignal()?.location}}</p>
+    <p><strong>Currently signed up / Maximum Capacity:</strong> {{participantNumber()}} / {{hikeSignal()?.capacity}}</p>
+    <p><strong>Length:</strong> {{hikeSignal()?.length}} km</p>
+    <p><strong>Difficulty:</strong> {{hikeSignal()?.difficulty}}</p>
+    <p><strong>Extra Information:</strong> {{hikeSignal()?.extraInformation}}</p>
+  </div>
+    <div class="info-container">
+      <div class="weather-card" *ngIf="weather !== null">
+          <h1>Weather Forecast</h1>
+          <h2>{{ cityName }}</h2>
+          <h3>{{hikeSignal()?.dateAndTime?.toDate() | date: 'yyyy.MM.dd HH:mm'}}</h3>
+          <img [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" alt="icon">
+          <p>{{ weather.weather[0].description | titlecase }}</p>
+          <p>🌡️ Temperature: {{ weather.main.temp }} °C</p>
+          <p>💧 Humidity: {{ weather.main.humidity }}%</p>
+          <p>🌬️ Wind: {{ (weather.wind.speed * 3.6).toFixed(2) }} km/h</p>
+      </div>  
+      <div class="weather-card" *ngIf="weather === null">
+        <h1>Weather Forecast</h1>
+        <p>Weather data is available at most 5 days in advance. Check back later.</p>
+      </div>
+        <div class="map-card">
+          @if (isLocationValid){
+            <h1 style="text-align: center;">Map</h1>
+            <div id="map"></div>
+          } @else {
+            <h1 style="text-align: center;">Map</h1>
+            <p style="text-align: center;">Location is not valid. Please check the extra information for location details.</p>
+          }
+        </div>
+    </div>
+    @if (!isHikeInPast()){
+      <div class="button-container">
+        <button (click)="signUpToHike()"
+          [disabled]="isUserParticipating() || (hikeSignal() && participantNumber() >= hikeSignal()!.capacity || isHikeInPast())">Sign Up</button>
+        <button class="signOffButton" (click)="signOffFromHike()" [disabled]="!isUserParticipating() || isHikeInPast()">Sign Off</button>
+      </div>
+    } @else if (isHikeInPast() && isUserParticipating() && !hasUserRated()){
+      <form [formGroup]="formRating" (ngSubmit)="onRate()">
+        <h1 style="text-align: center;">Rate this hike</h1>
+        <label for="rating" style="text-align: center;">Rating:</label>
+        <select name="rating" id="rating" formControlName="rating" ngModel="5">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </select> <br>
+        <button type="submit" [disabled]="formRating.invalid">Rate</button>
+      </form>
+    } @else if (isHikeInPast() && isUserParticipating() && hasUserRated() && averageRating() !== null){
+      <h2 style="text-align: center;">⭐ Average rating: {{ averageRating() }} / 5 ⭐</h2>
+    }
+</div> <br>
+@if (isUserParticipating()){
+  <h1>Leave A Comment</h1>
+  <div class="hike-container">
+    <h3 style="text-align: center;">Make it a conversation! <br>
+       If you are replying to someone or want to get their attention, include their E-mail in your comment!</h3>
+    <form [formGroup]="formComment" (ngSubmit)="onComment()">
+      <label for="comment">Comment:</label>
+      <textarea id="comment" placeholder="Comment" formControlName="comment" rows="4" cols="50"></textarea><br>
+      <button type="submit" [disabled]="formComment.invalid">Comment</button>
+    </form>
+  </div>
+  <h1>Comments</h1>
+  <div class="hike-container">
+    <div *ngFor="let comment of sortedComments()" [class.highlight]="comment.isUserMentioned" class="comment-box">
+      <p><strong>{{ comment.userEmail }}:</strong> {{ comment.comment }}</p>
+      <p class="timestamp">{{ comment.timestamp.toDate() | date: 'yyyy.MM.dd HH:mm' }}</p>
+    </div>
+  </div>
+}

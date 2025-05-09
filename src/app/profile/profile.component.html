@@ -1,0 +1,45 @@
+<div class="profile-container">
+  <div class="profile-header">
+    @if (authService.currentUserSignal()!.photoURL !== null) {
+      <img src="{{ authService.currentUserSignal()!.photoURL }}" alt="Profile Picture" class="profile-picture"/>
+    }
+
+    <h1>{{ authService.currentUserSignal()?.username }}</h1>
+    <p>{{ authService.currentUserSignal()?.email }}</p>
+  </div>
+
+  <div class="statistics-card">
+    <h1>Your Path</h1>
+    <p><strong>Hikes shared: {{hikesShared()}}</strong></p>
+    <p><strong>Hikes completed: {{hikesCompleted()}}</strong></p>
+    <p><strong>Kilometers hiked: {{kilometersHiked()}}</strong></p>
+    <p><strong>Unique people you hiked with: {{totalUniqueHikingPartners()}}</strong></p>
+  </div>
+
+  <form class="statistics-card" [formGroup]="formName" (ngSubmit)="onSubmitName()">
+    <h2>Change name</h2>
+
+    <label>Username:</label>
+    <input type="text" placeholder="Username"  formControlName="name" /> <br>
+    <button type="submit" [disabled]="formName.invalid">Change Name</button>
+  </form>
+
+  <form class="statistics-card" [formGroup]="formPassword" (ngSubmit)="onSubmitPassword()">
+    <h2>Change password</h2>
+
+    <label>New password (at least 8 characters):</label>
+    <input type="password" placeholder="Password" formControlName="password" /> <br>
+    <label>New password again:</label>
+    <input type="password" placeholder="Password" formControlName="passwordConfirm" /> <br>
+    <button type="submit" [disabled]="formPassword.invalid">Change Password</button>
+  </form>
+
+  <form class="statistics-card" [formGroup]="formPhoto" (ngSubmit)="onSubmitPhoto()">
+    <h2>Upload a profile picture</h2>
+
+    <label>Photo URL:</label>
+    <input type="text" placeholder="Photo URL" formControlName="photoURL" /> <br>
+    <button type="submit" [disabled]="formPhoto.invalid">Upload Photo</button>
+  </form>
+  <button type="button" class="deleteButton" (click)="deleteUser()">Delete Account</button>
+</div>

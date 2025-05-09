@@ -1,0 +1,31 @@
+<h1>Share A Hike</h1> <br>
+<div class="share-hike-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" placeholder="Name"  formControlName="name" /> <br>
+
+    <label>Location (format: City, specific location):</label>
+    <input type="text" placeholder="Location" formControlName="location" /> <br>
+
+    <label>Date and time:</label>
+    <input type="datetime-local" formControlName="dateAndTime"/> <br>
+
+    <label for="difficulty">Difficulty:</label>
+    <select name="difficulty" id="difficulty" formControlName="difficulty" ngModel="Easy">
+      <option value="Easy" selected>Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    </select> <br>
+
+    <label>Capacity (1-999 people):</label>
+    <input type="number" formControlName="capacity" min="1" max="999" oninput="validity.valid||(value='');"/> <br>
+
+    <label>Length (0-999 km):</label>
+    <input type="number" formControlName="length" min="0" max="999" oninput="validity.valid||(value='');"/> <br>
+
+    <label>Extra Information:</label>
+    <textarea placeholder="Extra information" formControlName="extraInformation" rows="4" cols="50"></textarea><br>
+
+    <button type="submit" [disabled]="form.invalid">Share</button>
+  </form>
+</div>

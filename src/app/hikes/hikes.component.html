@@ -1,0 +1,37 @@
+<h1 style="text-align: center;">Recommended Hikes</h1> <br>
+<div class="hikes-container">
+  <div class="search-bar">
+    <input type="text" #searchQueryRecommended (input)="filterRecommended(searchQueryRecommended.value)" placeholder="Search for a hike..." />
+  </div>
+
+  <div class="hikes-list">
+    <div *ngFor="let hike of recommendedHikes()" class="hike-card">
+      <h3>{{ hike.name }}</h3>
+      <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+      <p><strong>Location:</strong> {{ hike.location }}</p>
+      <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+      <p><strong>Capacity:</strong> {{ hike.capacity }}</p>
+      <p><strong>Length:</strong> {{ hike.length }} km</p>
+      <button (click)="seeMore(hike.id)">See More</button>
+    </div>
+  </div>
+</div>
+<br>
+<h1 style="text-align: center;">All Hikes</h1>
+<div class="hikes-container">
+  <div class="search-bar">
+    <input type="text" #searchQueryAll (input)="filterAll(searchQueryAll.value)" placeholder="Search for a hike..." />
+  </div>
+
+  <div class="hikes-list">
+    <div *ngFor="let hike of allHikes()" class="hike-card">
+      <h3>{{ hike.name }}</h3>
+      <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+      <p><strong>Location:</strong> {{ hike.location }}</p>
+      <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+      <p><strong>Capacity:</strong> {{ hike.capacity }}</p>
+      <p><strong>Length:</strong> {{ hike.length }} km</p>
+      <button (click)="seeMore(hike.id)">See More</button>
+    </div>
+  </div>
+</div>

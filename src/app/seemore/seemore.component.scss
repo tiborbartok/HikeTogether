@@ -1,0 +1,193 @@
+.hike-container {
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  word-wrap: break-word;
+}
+
+.weather-card {
+  max-width: 300px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.weather-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.weather-card img {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-card p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.hike-details-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.hike-details-card h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+.hike-details-card p {
+  margin: 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.hike-details-card strong {
+  font-weight: 600;
+  color: #374151;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.weather-card,
+.map-card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  flex: 1 1 45%;
+  min-width: 200px;
+  min-height: 400px;
+  margin: auto;
+}
+
+.map-card {
+  display: flex;
+  flex-direction: column;
+
+  #map {
+    flex: 1;
+    height: 300px;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+  }
+}
+
+button {
+  background-color: rgb(7, 91, 7);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: rgb(5, 62, 5);
+}
+
+button[disabled] {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signOffButton{
+  background-color: red;
+}
+
+.signOffButton:hover{
+  background-color: darkred;
+}
+
+.signOffButton[disabled]{
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
+input, select {
+  width: 50%;
+  padding: 8px 12px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.comments-container {
+  margin-top: 2rem;
+}
+
+.comment-box {
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+
+.comment-box.highlight {
+  background-color: #d0f0ff;
+  border-left: 4px solid #2196f3;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+textarea {
+  max-width: 200px;
+  max-height: 400px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 50%;
+}

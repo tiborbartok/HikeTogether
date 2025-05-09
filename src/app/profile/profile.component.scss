@@ -1,0 +1,115 @@
+.profile-container {
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-header h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.profile-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  background-color: rgb(7, 91, 7);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: rgb(5, 62, 5);
+}
+
+button[disabled] {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
+.deleteButton{
+  background-color: red;
+  margin-top: 1.5rem;
+}
+
+.deleteButton:hover{
+  background-color: darkred;
+  margin-top: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.statistics-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.statistics-card h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+.statistics-card p {
+  margin: 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.statistics-card strong {
+  font-weight: 600;
+  color: #374151;
+}
+
+input:focus {
+  border-color: darkgreen;
+  outline: none;
+}

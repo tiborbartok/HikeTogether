@@ -1,0 +1,56 @@
+<h1 style="text-align: center">My Upcoming Hikes</h1> <br>
+<div class="hikes-container">
+  <div class="search-bar">
+    <input type="text" #searchQueryUpcoming (input)="filterUpcoming(searchQueryUpcoming.value)" placeholder="Search for a hike..." />
+  </div>
+
+  <div class="hikes-list">
+    <div *ngFor="let hike of myUpcomingHikes()" class="hike-card">
+      <h3>{{ hike.name }}</h3>
+      <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+      <p><strong>Location:</strong> {{ hike.location }}</p>
+      <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+      <p><strong>Capacity:</strong> {{ hike.capacity }}</p>
+      <p><strong>Length:</strong> {{ hike.length }} km</p>
+      <button (click)="seeMore(hike.id)">See More</button>
+    </div>
+  </div>
+</div>
+<br>
+<h1 style="text-align: center;">My Shared Hikes</h1> <br>
+<div class="hikes-container">
+  <div class="search-bar">
+    <input type="text" #searchQueryShared (input)="filterShared(searchQueryShared.value)" placeholder="Search for a hike..." />
+  </div>
+
+  <div class="hikes-list">
+    <div *ngFor="let hike of mySharedHikes()" class="hike-card">
+      <h3>{{ hike.name }}</h3>
+      <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+      <p><strong>Location:</strong> {{ hike.location }}</p>
+      <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+      <p><strong>Capacity:</strong> {{ hike.capacity }}</p>
+      <p><strong>Length:</strong> {{ hike.length }} km</p>
+      <button (click)="seeMore(hike.id)">See More</button>
+    </div>
+  </div>
+</div>
+<br>
+<h1 style="text-align: center;">My Completed Hikes</h1> <br>
+<div class="hikes-container">
+  <div class="search-bar">
+    <input type="text" #searchQueryCompleted (input)="filterCompleted(searchQueryCompleted.value)" placeholder="Search for a hike..." />
+  </div>
+
+  <div class="hikes-list">
+    <div *ngFor="let hike of myCompletedHikes()" class="hike-card">
+      <h3>{{ hike.name }}</h3>
+      <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+      <p><strong>Location:</strong> {{ hike.location }}</p>
+      <p><strong>Difficulty:</strong> {{ hike.difficulty }}</p>
+      <p><strong>Capacity:</strong> {{ hike.capacity }}</p>
+      <p><strong>Length:</strong> {{ hike.length }} km</p>
+      <button (click)="seeMore(hike.id)">See More</button>
+    </div>
+  </div>
+</div>
