@@ -15,10 +15,11 @@ import { RatingInterface } from '../interfaces/rating.interface';
 import { CommentInterface } from '../interfaces/comment.interface';
 import { CommentsFirebaseService } from '../services/commentsFirebase.service';
 import { icon, Marker } from 'leaflet';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-seemore',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgxPaginationModule],
   templateUrl: './seemore.component.html',
   styleUrl: './seemore.component.scss'
 })
@@ -37,6 +38,7 @@ export class SeemoreComponent implements OnInit{
   hikeParticipantDataSignal = signal<HikeParticipantDataInterface[]>([]);
   ratingsSignal = signal<RatingInterface[]>([]);
   commentsSignal = signal<CommentInterface[]>([]);
+  page: number = 1;
 
   weather: any | null = null;
   cityName: string | null = null;

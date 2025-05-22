@@ -5,7 +5,7 @@
   </div>
 
   <div class="hikes-list">
-    <div *ngFor="let hike of recommendedHikes()" class="hike-card">
+    <div *ngFor="let hike of recommendedHikes() | paginate: {id: 'listA', itemsPerPage: 6, currentPage: pageRecommended, totalItems: recommendedHikes().length }" class="hike-card">
       <h3>{{ hike.name }}</h3>
       <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
       <p><strong>Location:</strong> {{ hike.location }}</p>
@@ -15,6 +15,7 @@
       <button (click)="seeMore(hike.id)">See More</button>
     </div>
   </div>
+  <pagination-controls style="margin-right: 35px;" id="listA" (pageChange)="pageRecommended = $event"></pagination-controls>
 </div>
 <br>
 <h1 style="text-align: center;">All Hikes</h1>
@@ -24,7 +25,7 @@
   </div>
 
   <div class="hikes-list">
-    <div *ngFor="let hike of allHikes()" class="hike-card">
+    <div *ngFor="let hike of allHikes() | paginate: {id: 'listB', itemsPerPage: 6, currentPage: pageAll }" class="hike-card">
       <h3>{{ hike.name }}</h3>
       <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
       <p><strong>Location:</strong> {{ hike.location }}</p>
@@ -34,4 +35,5 @@
       <button (click)="seeMore(hike.id)">See More</button>
     </div>
   </div>
+  <pagination-controls style="margin-right: 35px;" id="listB" (pageChange)="pageAll = $event"></pagination-controls>
 </div>

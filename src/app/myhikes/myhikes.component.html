@@ -5,7 +5,7 @@
   </div>
 
   <div class="hikes-list">
-    <div *ngFor="let hike of myUpcomingHikes()" class="hike-card">
+    <div *ngFor="let hike of myUpcomingHikes() | paginate: {id: 'listA', itemsPerPage: 6, currentPage: pageUpcoming}" class="hike-card">
       <h3>{{ hike.name }}</h3>
       <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
       <p><strong>Location:</strong> {{ hike.location }}</p>
@@ -15,6 +15,7 @@
       <button (click)="seeMore(hike.id)">See More</button>
     </div>
   </div>
+  <pagination-controls style="margin-right: 35px;" id="listA" (pageChange)="pageUpcoming = $event"></pagination-controls>
 </div>
 <br>
 <h1 style="text-align: center;">My Shared Hikes</h1> <br>
@@ -24,7 +25,7 @@
   </div>
 
   <div class="hikes-list">
-    <div *ngFor="let hike of mySharedHikes()" class="hike-card">
+    <div *ngFor="let hike of mySharedHikes() | paginate: {id: 'listB', itemsPerPage: 6, currentPage: pageShared}" class="hike-card">
       <h3>{{ hike.name }}</h3>
       <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
       <p><strong>Location:</strong> {{ hike.location }}</p>
@@ -34,6 +35,7 @@
       <button (click)="seeMore(hike.id)">See More</button>
     </div>
   </div>
+  <pagination-controls style="margin-right: 35px;" id="listB" (pageChange)="pageShared = $event"></pagination-controls>
 </div>
 <br>
 <h1 style="text-align: center;">My Completed Hikes</h1> <br>
@@ -43,7 +45,7 @@
   </div>
 
   <div class="hikes-list">
-    <div *ngFor="let hike of myCompletedHikes()" class="hike-card">
+    <div *ngFor="let hike of myCompletedHikes() | paginate: {id: 'listC', itemsPerPage: 6, currentPage: pageCompleted, totalItems: myCompletedHikes.length}" class="hike-card">
       <h3>{{ hike.name }}</h3>
       <p><strong>Date and Time:</strong> {{ hike.dateAndTime.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
       <p><strong>Location:</strong> {{ hike.location }}</p>
@@ -53,4 +55,5 @@
       <button (click)="seeMore(hike.id)">See More</button>
     </div>
   </div>
+  <pagination-controls style="margin-right: 35px;" id="listC" (pageChange)="pageCompleted = $event"></pagination-controls>
 </div>

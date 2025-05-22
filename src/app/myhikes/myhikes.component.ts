@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { HikesFirebaseService } from '../services/hikesFirebase.service';
 import { HikeParticipantDataInterface } from '../interfaces/hikeParticipantData.interface';
 import { HikeParticipantDataFirebaseService } from '../services/hikeParticipantDataFirebase.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-myhikes',
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './myhikes.component.html',
   styleUrl: './myhikes.component.scss'
 })
@@ -23,6 +24,9 @@ export class MyhikesComponent implements OnInit {
   searchQueryUpcoming = signal<string>('');
   searchQueryShared = signal<string>('');
   searchQueryCompleted = signal<string>('');
+  pageUpcoming: number = 1;
+  pageShared: number = 1;
+  pageCompleted: number = 1;
 
   mySharedHikes = computed(() => {
     const sq = this.searchQueryShared();
@@ -66,13 +70,16 @@ export class MyhikesComponent implements OnInit {
 
   filterUpcoming(searchQueryUpcoming: string) {
     this.searchQueryUpcoming.set(searchQueryUpcoming);
+    this.pageUpcoming = 1;
   }
 
   filterShared(searchQueryShared: string) {
     this.searchQueryShared.set(searchQueryShared);
+    this.pageShared = 1;
   }
 
   filterCompleted(searchQueryCompleted: string) {
     this.searchQueryCompleted.set(searchQueryCompleted);
+    this.pageCompleted = 1;
   }
 }

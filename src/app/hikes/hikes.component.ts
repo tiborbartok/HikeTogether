@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { HikeParticipantDataFirebaseService } from '../services/hikeParticipantDataFirebase.service';
 import { HikeParticipantDataInterface } from '../interfaces/hikeParticipantData.interface';
 import { AuthService } from '../services/auth.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-hikes',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgxPaginationModule],
   templateUrl: './hikes.component.html',
   styleUrl: './hikes.component.scss'
 })
@@ -28,6 +29,8 @@ export class HikesComponent implements OnInit{
   userParticipations = signal<HikeParticipantDataInterface[]>([]);
   searchQueryAll = signal<string>('');
   searchQueryRecommended = signal<string>('');
+  pageAll: number = 1;
+  pageRecommended: number = 1;
   
   allHikes = computed(() => {
     const sq = this.searchQueryAll();
@@ -68,10 +71,12 @@ export class HikesComponent implements OnInit{
 
   filterAll(searchQueryAll: string) {
     this.searchQueryAll.set(searchQueryAll);
+    this.pageAll = 1;
   }
 
   filterRecommended(searchQueryRecommended: string) {
     this.searchQueryRecommended.set(searchQueryRecommended);
+    this.pageRecommended = 1;
   }
 
   addHike(name: string, location: string, dateAndTime: Date, difficulty: string, capacity: number, length: number,

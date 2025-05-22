@@ -1,13 +1,13 @@
 <div class="hike-container">
   <div class="hike-details-card" *ngIf="hikeSignal()">
     <h1>{{hikeSignal()?.name}}</h1>
-    <p><strong>Shared by: </strong>{{hikeSignal()?.userEmail}}</p>
-    <p><strong>Date and Time:</strong> {{hikeSignal()?.dateAndTime?.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
-    <p><strong>Location:</strong> {{hikeSignal()?.location}}</p>
-    <p><strong>Currently signed up / Maximum Capacity:</strong> {{participantNumber()}} / {{hikeSignal()?.capacity}}</p>
-    <p><strong>Length:</strong> {{hikeSignal()?.length}} km</p>
-    <p><strong>Difficulty:</strong> {{hikeSignal()?.difficulty}}</p>
-    <p><strong>Extra Information:</strong> {{hikeSignal()?.extraInformation}}</p>
+    <p><strong>👤 Shared by: </strong>{{hikeSignal()?.userEmail}}</p>
+    <p><strong>📅 Date and Time:</strong> {{hikeSignal()?.dateAndTime?.toDate() | date: 'yyyy.MM.dd HH:mm'}}</p>
+    <p><strong>📍 Location:</strong> {{hikeSignal()?.location}}</p>
+    <p><strong>👥 Currently signed up / Maximum Capacity:</strong> {{participantNumber()}} / {{hikeSignal()?.capacity}}</p>
+    <p><strong>📏 Length:</strong> {{hikeSignal()?.length}} km</p>
+    <p><strong>🌡️ Difficulty:</strong> {{hikeSignal()?.difficulty}}</p>
+    <p><strong>ℹ️ Extra Information:</strong> {{hikeSignal()?.extraInformation}}</p>
   </div>
     <div class="info-container">
       <div class="weather-card" *ngIf="weather !== null">
@@ -70,9 +70,10 @@
   </div>
   <h1>Comments</h1>
   <div class="hike-container">
-    <div *ngFor="let comment of sortedComments()" [class.highlight]="comment.isUserMentioned" class="comment-box">
+    <div *ngFor="let comment of sortedComments() | paginate: {itemsPerPage: 10, currentPage: page}" [class.highlight]="comment.isUserMentioned" class="comment-box">
       <p><strong>{{ comment.userEmail }}:</strong> {{ comment.comment }}</p>
       <p class="timestamp">{{ comment.timestamp.toDate() | date: 'yyyy.MM.dd HH:mm' }}</p>
     </div>
+    <pagination-controls style="margin-right: 35px; text-align: center;" (pageChange)="page = $event"></pagination-controls>
   </div>
 }
